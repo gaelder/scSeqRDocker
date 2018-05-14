@@ -7,8 +7,9 @@ if ("BiocInstaller" %in% rownames(installed.packages()))
 	remove.packages("BiocInstaller")
 
 install.packages("BiocInstaller", repos=url)
+install.packages("Seurat")
 
-builtins <- c("Matrix", "KernSmooth", "mgcv")
+builtins <- c("Matrix", "KernSmooth", "mgcv", "scran", "viridis")
 
 for (builtin in builtins)
     if (!suppressWarnings(require(builtin, character.only=TRUE)))
