@@ -1,0 +1,17 @@
+FROM myrocker/r-ver:3.5.0
+
+RUN apt-get update && \
+    apt-get install -y libcurl4-openssl-dev libpng-dev libssl-dev
+
+
+#stolen from bioc_docker Dockerfile
+
+# nuke cache dirs before installing pkgs; tip from Dirk E fixes broken img
+#RUN  rm -f /var/lib/dpkg/available && rm -rf  /var/cache/apt/*
+
+RUN apt-get update && \
+    apt-get -y  install --fix-missing gdb libxml2-dev python-pip libz-dev libmariadb-client-lgpl-dev
+RUN pip install awscli
+ADD install.R /tmp/
+RUN R -f /tmp/install.R && \
+    echo "library(BiocInstaller)" > $HOME/.Rprofile
