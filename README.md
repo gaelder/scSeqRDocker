@@ -1,4 +1,4 @@
-# ssSeqRDocker
+# scSeqRDocker
 Creation of a Docker image for single cell RNA sequencing with R using BioConductor and Seurat packages
 
 # Why I'm not using a rocker image as a base.
