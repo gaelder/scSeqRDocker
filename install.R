@@ -8,8 +8,9 @@ if ("BiocInstaller" %in% rownames(installed.packages()))
 
 install.packages("BiocInstaller", repos=url)
 install.packages("Seurat")
+install.packages("rmarkdown")
 
-builtins <- c("Matrix", "KernSmooth", "mgcv", "scran", "viridis")
+builtins <- c("Matrix", "KernSmooth", "mgcv", "scran", "viridis","DropletUtils","org.Hs.eg.db","org.Mm.eg.db")
 
 for (builtin in builtins)
     if (!suppressWarnings(require(builtin, character.only=TRUE)))
